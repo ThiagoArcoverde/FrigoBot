@@ -2,7 +2,7 @@ import { command } from './command'
 
 export default new class commandIsAlive implements command {
     commandInfo = {
-        name: "isalive",
+        name: "is_alive",
         description: "Basic command to check if the bot is alive."
     }
     invokeCommand(app: any): void {
@@ -11,7 +11,7 @@ export default new class commandIsAlive implements command {
             if (!interaction.isChatInputCommand())
                 return
 
-            if (interaction.commandName.toLowerCase() === 'isalive') {
+            if (interaction.commandName.toLowerCase() === this.commandInfo.name.toLocaleLowerCase()) {
                 await interaction.reply('Hello world!')
             }
         })

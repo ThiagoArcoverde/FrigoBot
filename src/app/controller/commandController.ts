@@ -1,5 +1,6 @@
 import { REST, Routes } from 'discord.js'
 import commandIsAlive from '../service/commandService/commandIsAlive'
+import commandSetToken from '../service/commandService/commandSetToken'
 
 export default class AppCommandsController {
     private TOKEN: string
@@ -18,8 +19,12 @@ export default class AppCommandsController {
 
     public async defineCommands(app: any) {
         const commands: any = []
+
         commandIsAlive.invokeCommand(app)
         commands.push(commandIsAlive.commandInfo)
+
+        commandSetToken.invokeCommand(app)
+        commands.push(commandSetToken.commandInfo)
 
         this.loadCommands(commands)
     }
