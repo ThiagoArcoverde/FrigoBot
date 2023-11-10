@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "name": "frigobot",
+  "version": "1.0.0",
+  "description": "Discord bot feito para funções gerais",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/app/App.ts",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThiagoArcoverde/FrigoBot.git"
+  },
+  "author": "Thiago Arcoverde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThiagoArcoverde/FrigoBot/issues"
+  },
+  "homepage": "https://github.com/ThiagoArcoverde/FrigoBot#readme"
+}
