@@ -1,7 +1,8 @@
 import { REST, Routes } from 'discord.js'
 import commandIsAlive from '../service/commandService/commandIsAlive'
-import commandSetToken from '../service/commandService/commandSetToken'
+import commandSetRedmineKey from '../service/commandService/commandSetRedmineKey'
 import commandRegister from '../service/commandService/commandRegister'
+import commandGetTicket from '../service/commandService/commandGetTicket'
 
 export default class AppCommandsController {
     private TOKEN: string
@@ -24,11 +25,14 @@ export default class AppCommandsController {
         commandIsAlive.invokeCommand(app)
         commands.push(commandIsAlive.commandInfo)
 
-        commandSetToken.invokeCommand(app)
-        commands.push(commandSetToken.commandInfo)
+        commandSetRedmineKey.invokeCommand(app)
+        commands.push(commandSetRedmineKey.commandInfo)
 
         commandRegister.invokeCommand(app)
         commands.push(commandRegister.commandInfo)
+
+        commandGetTicket.invokeCommand(app)
+        commands.push(commandGetTicket.commandInfo)
 
         this.loadCommands(commands)
     }
