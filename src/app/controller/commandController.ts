@@ -3,6 +3,7 @@ import commandIsAlive from '../service/commandService/commandIsAlive'
 import commandSetRedmineKey from '../service/commandService/commandSetRedmineKey'
 import commandRegister from '../service/commandService/commandRegister'
 import commandGetTicket from '../service/commandService/commandGetTicket'
+import commandSetTimeTicket from '../service/commandService/commandSetTimeTicket'
 
 export default class AppCommandsController {
     private TOKEN: string
@@ -33,6 +34,9 @@ export default class AppCommandsController {
 
         commandGetTicket.invokeCommand(app)
         commands.push(commandGetTicket.commandInfo)
+
+        commandSetTimeTicket.invokeCommand(app)
+        commands.push(commandSetTimeTicket.commandInfo)
 
         this.loadCommands(commands)
     }
