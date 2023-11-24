@@ -3,6 +3,7 @@ import commandIsAlive from '../service/commandService/commandIsAlive'
 import commandSetRedmineKey from '../service/commandService/commandSetRedmineKey'
 import commandRegister from '../service/commandService/commandRegister'
 import commandGetTicket from '../service/commandService/commandGetTicket'
+import commandHelp from '../service/commandService/commandHelp'
 
 export default class AppCommandsController {
     private TOKEN: string
@@ -34,6 +35,7 @@ export default class AppCommandsController {
         commandGetTicket.invokeCommand(app)
         commands.push(commandGetTicket.commandInfo)
 
+        this.setHelpCommand(commands, app)
         this.loadCommands(commands)
     }
 
@@ -49,5 +51,11 @@ export default class AppCommandsController {
         } catch (error: any) {
             console.error(error)
         }
+    }
+
+    private setHelpCommand(commands: any, app: any){
+        let helpCommand = new commandHelp(commands)
+        helpCommand.invokeCommand(app)
+        commands.push(helpCommand.commandInfo)
     }
 }
