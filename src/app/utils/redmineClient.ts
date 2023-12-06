@@ -23,4 +23,26 @@ export default class redmineClient {
         }
     }
 
+    static async setTimeWorked(sendTime:string, issueID:string, tipeActivity:string, apiKey:string) : Promise<any>{
+        const url = `${this.apiURL}/issues/${issueID}.json`
+
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Redmine-API-Key': apiKey,
+                },
+            });
+            let data
+            if(response.status === 200){
+                return await response.json()
+            }
+            return data = {status: response.status}
+            
+        } catch (error) {
+            console.log("Erro ao buscar issue: " + error)
+        }
+    }
+
 }
